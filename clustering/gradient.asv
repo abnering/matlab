@@ -42,7 +42,7 @@ wplot2 = w(2,:);
 Qplot = Q;
 
 while 1
-	i = randi(length(data));
+	i =randi(length(data));
 	euclidian_distance(i,1) =  norm (w(1,:) - data(i,:));%sqrt( (w(1,1) - data(i,1))^2 + (w(1,2) - data(i,2))^2);
 	euclidian_distance(i,2) =  norm (w(2,:) - data(i,:));%sqrt( (w(2,1) - data(i,1))^2 + (w(2,2) - data(i,2))^2);
 	
@@ -55,16 +55,15 @@ while 1
 		wplot2 = [wplot2; w(b,:)];
 	end;
 	Q = (1-lambda)*Q+lambda*((w(b,1) - data(i,1))^2 + (w(b,2) - data(i,2))^2);
-	if (abs(Qplot(end) - Q) <0.1) %convergence 
-        break;
-    end;
+	if (abs(Qplot(end) - Q) <0.1)
+    end
     Qplot = [Qplot; Q];
 end;
 
 figure(1);
 	plot (wplot1(:,1), wplot1(:,2));
 	plot (wplot2(:,1), wplot2(:,2));
-	plot (w(:,1),w(:,2), 'g.','markersize', 30);
+	plot (w(:,1),w(:,2), 'b.','markersize', 30);
 
 figure(2); 
 	plot(Qplot);
