@@ -1,4 +1,4 @@
-s = 5; 
+s = 5; %true state
 h = plot(s,1,'r.');
 set(h,'markersize',40,'linewidth', 3);
 x = s + randn(1,50);
