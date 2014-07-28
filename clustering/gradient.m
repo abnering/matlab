@@ -34,7 +34,6 @@ for (i=1:length(data))
 	Q = Q +(w(a(i),1) - data(i,1))^2 + (w(a(i),2) - data(i,2))^2;
 end;
 
-
 %iterative process
 nu = 0.1;
 lambda = 0.003;
@@ -64,6 +63,7 @@ for (j=1:length(data))
 		%plot(j,Q,'bo.','markersize', 5);
 
 end;
+
 figure(1);
 	plot (wplot1(:,1), wplot1(:,2));
 	plot (wplot2(:,1), wplot2(:,2));
