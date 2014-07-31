@@ -30,5 +30,5 @@ for (i = 2:length(x))
   %drawnow
   peak = find(Po == max(Po));
 end;
-plot(Sx(peak),0:0.001:1);
+plot(Sx(peak),0:0.001:1, 'r.','markersize',1);
 Sx(peak)
