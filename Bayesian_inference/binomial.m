@@ -23,7 +23,7 @@ prior = ones(1, length(hypothesis));
 prior(1,1) = 0.15;
 prior(1,2) = 0.8;
 prior(1,3) = 0.05;
-%update rule
+%update rule - trying to choose correct hypothesis
 for (i = 1:N)
 	for (j=1:length(hypothesis))
 		likelihood(j) = binopdf(data(i),1,hypothesis(j));
