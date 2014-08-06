@@ -1,18 +1,17 @@
-s = 5; %true state
-%figure(2); clf; hold on;
+clear;
+clc;
 figure(1); clf; hold on;
-h = plot(s,1,'r.');
-set(h,'markersize',40,'linewidth', 3);
-x = s + randn(1,100);
-h = plot(x,1,'r.','markersize',10);
-Sx = [4:0.1:10];
+load T;
+x =T(5550:5600);
+Sx = [20:0.01:35];
 L = length(Sx);
 Pr = ones(L);
 Po=ones(L,L);
 mean(x)
 Pr = Pr/sum(Pr);
 Po = Po/sum(Po);
-sigma = std(x);
+sigma = 0.2;%std(x);
+x_peak=zeros(1,2);
 for (i = 2:length(x))
   Pr=Po;
   m=0*Pr;
@@ -26,9 +25,14 @@ for (i = 2:length(x))
   %pause;
   Po = m/(sum(m));
   figure(1);
-  plot(Sx,Po);
+  plot(1:i,x(1:i));
+  plot(i*(Po)+i, Sx,'color','green');
   %drawnow
   peak = find(Po == max(Po));
-end;
-plot(Sx(peak),0:0.001:1, 'r.','markersize',1);
+  %plot(Sx(peak),0:0.001:1, 'r.','markersize',1);
+  x_peak = [x_peak; i, Sx(peak)] ;
+  %plot([0,i], [Sx(peak),Sx(peak)], 'color','red');
+  plot(x_peak(2:end,1),x_peak(2:end,2), 'color','red');
 Sx(peak)
+%pause;
+end;
