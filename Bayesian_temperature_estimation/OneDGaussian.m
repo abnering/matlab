@@ -5,7 +5,7 @@ figure(1); clf; hold on;
 load T;
 load pv21r;
 x =T(5450:5500);
-x=pv21r(1:300,2);
+%x=pv21r(1:300,2);
 valve = pv21r(1:300,1);
 Sx = [min(x):0.01:max(x)];
 L = length(Sx);
@@ -25,12 +25,12 @@ for (i = 2:length(x)) %(min(x)-max(x))/pv101r(i,1)
   end;
   
   Po = m/(sum(m));
-   % Pr=Po;
-  if ((valve(i) -  valve(i-1)) != 0)
-	Pr = normpdf(Sx,min(x) - 4*(valve(i) -  valve(i-1))  ,2);
-  else
-	Pr=Po;
-  end;
+    Pr=Po;
+  % if ((valve(i) -  valve(i-1)) != 0)
+	% Pr = normpdf(Sx,min(x) - 4*(valve(i) -  valve(i-1))  ,2);
+  % else
+	% Pr=Po;
+  % end;
   figure(1);
   plot(1:i,x(1:i));
   %plot(1:i,valve(1:i), 'color','black');
