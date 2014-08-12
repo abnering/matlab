@@ -9,3 +9,11 @@ for (i=2:N)
 end;
 
 x(end)
+
+x=zeros(1,2);
+x(1) = 1;
+for (i=2:3)
+    x(i) = x(i-1) + (0.5)*(1/(2*x(i-1)));
+end;
+
+x(end)
