@@ -18,7 +18,9 @@ mean(x)
 
 Pr = Pr/sum(Pr);
 sigma = 0.2;
-x = [x; x(90:150)+0.0;x(40:100)+0.0;]
+epsilon = 0.1;
+% x(110:140)+epsilon
+x = [x; x(90:150)+epsilon; x(40:100)+epsilon;];
 x_peak=zeros(1,2);
 Sx_mean = min(x);
 for (i = 2:length(x)) %(min(x)-max(x))/pv101r(i,1)
