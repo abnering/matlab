@@ -1,9 +1,9 @@
 clc; clear;
 figure(1); clf; hold on;
-N = 7;
+N = 4;
 e = exp(1);
-x = linspace(1,e,N);
-f = '1./x';
+x =0:0.25:1; %linspace(0,1,N);
+f = '4./(1+x.^2)';
 fn = eval(f);
 plot(x,fn);
 I = zeros(1,4);

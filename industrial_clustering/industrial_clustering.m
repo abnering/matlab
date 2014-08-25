@@ -1,7 +1,8 @@
 clear;
 clc;
-import_building;
-X = [VarName1 VarName2];
+%import_building;
+%X = [VarName1 VarName2];
+X= load("Temperature.txt" );
 plot(X(:,1),X(:,2), 'b.','markersize',2);
 Y = pdist(X);
 Z = linkage(Y);
