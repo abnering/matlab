@@ -10,11 +10,17 @@ end;
 
 x(end);
 
-x=zeros(1,3);
-x(1) = 3;
-t = 0:0.1:4;
-for (i=2:4)
-    x(i) = x(i-1) + (0.1)*(t(i-1) - 2*x(i-1))
+y = zeros(1,1e+6);
+y(1)=1;
+dt = 0.5;
+for(i=1:length(y) - 1)
+    y(i+1) = y(i) + dt * 2*y(i);
+    a = y(i+1);
+    if (a>1e+5)
+        
+        break;
+    end;
+    
 end;
-
-x(end);
+E = exp(1*i) - a
+i
